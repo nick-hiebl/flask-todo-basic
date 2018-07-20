@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="temp1">
+        <h1>Todos</h1>
+        <ul class="list-group">
+            {% for todo in todos %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">{{todo}}
+                <form action="/delete" method="post">
+                    <button class="btn" name="button">Delete</button>
+                    <input type="text" name="name" value="{{ todo }}" hidden>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <form class="temp1" action="/todos" method="post">
+        <div class="form-group">
+            <label for="new-name">Enter a new todo item</label>
+            <input class="form-control" type="text" name="new-name" value="">
+        </div>
+        <button class="btn btn-primary" name="button">Submit</button>
+    </form>
+{% endblock %}
