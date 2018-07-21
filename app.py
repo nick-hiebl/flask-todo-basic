@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 todos = ["Milk the cows", "Track down the cows in the back paddock"]
+done = []
 
 @app.route("/")
 def home():
@@ -10,6 +11,9 @@ def home():
 @app.route("/pricing")
 def pricing():
     return render_template("pricing.html")
+
+def get_todo_page():
+    return render_template("todos.html", todos=todos, done=done)
 
 @app.route("/todos", methods=['GET', 'POST'])
 def todos_page():
@@ -20,13 +24,36 @@ def todos_page():
             return render_template("404.html", title="Input error",
                 content="""UWU you must've made a fucky wucky.
 Your todo items should have a couple letters in them at least right?""")
-    return render_template("todos.html", todos=todos)
+    return get_todo_page()
 
 @app.route("/delete", methods=['POST'])
 def delete_item():
     to_go = request.form["name"]
-    todos.remove(to_go)
-    return render_template("todos.html", todos=todos)
+    try:
+        todos.remove(to_go)
+    except Exception as e:
+        pass
+    return redirect("/todos")
+
+@app.route("/done", methods=['POST'])
+def done_item():
+    to_go = request.form["name"]
+    try:
+        todos.remove(to_go)
+        done.append(to_go)
+    except Exception as e:
+        pass
+    return redirect("/todos")
+
+@app.route("/delete_done", methods=['POST'])
+def done_delete():
+    to_go = request.form["name"]
+    try:
+        done.remove(to_go)
+    except Exception as e:
+        pass
+    return redirect("/todos")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
