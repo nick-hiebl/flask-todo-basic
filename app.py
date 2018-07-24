@@ -12,8 +12,8 @@ def home():
 def pricing():
     return render_template("pricing.html")
 
-def get_todo_page():
-    return render_template("todos.html", todos=todos, done=done)
+def get_todo_page(text=""):
+    return render_template("todos.html", todos=todos, done=done, text=text)
 
 @app.route("/todos", methods=['GET', 'POST'])
 def todos_page():
@@ -30,6 +30,15 @@ def delete_item():
     except Exception as e:
         pass
     return redirect("/todos")
+
+@app.route("/edit", methods=['POST'])
+def edit_item():
+    to_edit = request.form["name"]
+    try:
+        todos.remove(to_edit)
+        return get_todo_page(text=to_edit)
+    except Exception as e:
+        return redirect("/todos")
 
 @app.route("/done", methods=['POST'])
 def done_item():

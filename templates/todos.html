@@ -11,6 +11,10 @@
                         <button class="btn btn-success" name="button">Done</button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
                     </form>
+                    <form style="display:inline" action="/edit" method="post">
+                        <button class="btn btn-warning" name="button">Edit</button>
+                        <input type="text" name="name" value="{{ todo }}" hidden>
+                    </form>
                     <form style="display:inline" action="/delete" method="post">
                         <button class="btn btn-danger" name="button">Delete</button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
@@ -23,7 +27,7 @@
     <form class="temp1" action="/todos" method="post">
         <div class="form-group">
             <label for="new-name">Enter a new todo item</label>
-            <input autocomplete="off" class="form-control" type="text" name="new-name" value="">
+            <input autocomplete="off" class="form-control" type="text" name="new-name" value="{{text}}">
         </div>
         <button class="btn btn-primary" name="button">Submit</button>
     </form>
