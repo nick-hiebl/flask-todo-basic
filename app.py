@@ -20,10 +20,6 @@ def todos_page():
     if request.method == "POST":
         if len(request.form["new-name"]) > 0:
             todos.append(request.form["new-name"])
-        else:
-            return render_template("404.html", title="Input error",
-                content="""UWU you must've made a fucky wucky.
-Your todo items should have a couple letters in them at least right?""")
     return get_todo_page()
 
 @app.route("/delete", methods=['POST'])
