@@ -1,12 +1,15 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <div class="temp1">
+    <div>
         <h1>Todos</h1>
-        <ul class="list-group">
+        <ul class="list">
             {% for todo in todos %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">{{todo}}
-                <div>
+            <li class="list-item flex-parent">
+                <div class="flex-thing">
+                    {{todo}}
+                </div>
+                <div class="">
                     <form style="display:inline" action="/done" method="post">
                         <button class="btn btn-success" name="button">Done</button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
@@ -24,18 +27,23 @@
             {% endfor %}
         </ul>
     </div>
-    <form class="temp1" action="/todos" method="post">
+    <form class="flex-parent" action="/todos" method="post">
         <div class="form-group">
-            <label for="new-name">Enter a new todo item</label>
-            <input autocomplete="off" class="form-control" type="text" name="new-name" value="{{text}}">
+            <div class="flex-thing">
+                <label for="new-name">Enter a new todo item</label>
+                <input autocomplete="off" class="form-control" type="text" name="new-name" value="{{text}}">
+            </div>
         </div>
         <button class="btn btn-primary" name="button">Submit</button>
     </form>
-    <div class="temp1">
+    <div>
         <h1>Finished</h1>
-        <ul class="list-group">
+        <ul class="list">
             {% for todo in done %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">{{todo}}
+            <li class="list-item flex-parent">
+                <div class="flex-thing">
+                    {{todo}}
+                </div>
                 <form action="/delete_done" method="post">
                     <button class="btn btn-danger" name="button">Delete</button>
                     <input type="text" name="name" value="{{ todo }}" hidden>
