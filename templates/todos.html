@@ -11,19 +11,23 @@
             {% for todo in todos %}
             <li class="list-item flex-parent">
                 <div class="flex-thing">
-                    {{todo}}
-                </div>
-                <div class="">
                     <form style="display:inline" action="/done" method="post">
-                        <button class="btn btn-success" name="button">Done</button>
+                        <button class="icon-button" name="button">
+                            <i class="material-icons">done</i>
+                        </button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
                     </form>
+                    {{todo}}
+                </div>
+                <div>
                     <form style="display:inline" action="/edit" method="post">
-                        <button class="btn btn-warning" name="button">Edit</button>
+                        <button class="icon-button" name="button">
+                            <i class="material-icons">create</i></button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
                     </form>
                     <form style="display:inline" action="/delete" method="post">
-                        <button class="btn btn-danger" name="button">Delete</button>
+                        <button class="icon-button" name="button">
+                            <i class="material-icons">delete</i></button>
                         <input type="text" name="name" value="{{ todo }}" hidden>
                     </form>
                 </div>
@@ -47,10 +51,12 @@
             {% for todo in done %}
             <li class="list-item flex-parent">
                 <div class="flex-thing">
+                    <i style="color: green" class="material-icons">done</i>
                     {{todo}}
                 </div>
                 <form action="/delete_done" method="post">
-                    <button class="btn btn-danger" name="button">Delete</button>
+                    <button class="icon-button" name="button">
+                        <i class="material-icons">delete</i></button>
                     <input type="text" name="name" value="{{ todo }}" hidden>
                 </form>
             </li>
