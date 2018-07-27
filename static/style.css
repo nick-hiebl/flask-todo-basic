@@ -35,14 +35,6 @@ div {
     color: white;
 }
 
-input {
-    width: 400px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 1em;
-}
-
 .list {
     list-style-type: none;
     padding-left: 0px;
@@ -66,4 +58,26 @@ input {
 .right {
     position: relative;
     float: right;
+}
+
+.text-entry {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #aaa;
+    padding: 5px;
+    font-size: 1em;
+    margin: 5px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.subheading {
+    color: #777;
+}
+
+.filler {
+    font-size: 0.9em;
+    color: #777;
 }
