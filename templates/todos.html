@@ -2,7 +2,11 @@
 
 {% block body %}
     <div>
-        <h1>Todos</h1>
+        <div class="heading">
+            <h1>Todo List</h1>
+        </div>
+        <p class="subheading">To-do:</p>
+        {% if todos %}
         <ul class="list">
             {% for todo in todos %}
             <li class="list-item flex-parent">
@@ -26,18 +30,19 @@
             </li>
             {% endfor %}
         </ul>
+        {% else %}
+        <p class="filler">Nothing to be done.</p>
+        {% endif %}
     </div>
     <form class="flex-parent" action="/todos" method="post">
-        <div class="form-group">
-            <div class="flex-thing">
-                <label for="new-name">Enter a new todo item</label>
-                <input autocomplete="off" class="form-control" type="text" name="new-name" value="{{text}}">
-            </div>
-        </div>
-        <button class="btn btn-primary" name="button">Submit</button>
+        <input autocomplete="off" class="text-entry" type="text"
+            placeholder="Add a new to-do item" name="new-name"
+            value="{{text}}">
+        <button class="btn btn-primary" name="button" hidden>Submit</button>
     </form>
     <div>
-        <h1>Finished</h1>
+        <p class="subheading">Finished:</p>
+        {% if done %}
         <ul class="list">
             {% for todo in done %}
             <li class="list-item flex-parent">
@@ -51,5 +56,8 @@
             </li>
             {% endfor %}
         </ul>
+        {% else %}
+        <p class="filler">No completed tasks.</p>
+        {% endif %}
     </div>
 {% endblock %}
