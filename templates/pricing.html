@@ -1,57 +1,74 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<style media="screen">
+    .navbar-pricing {
+        font-style: italic;
+    }
+</style>
 <div class="container shadow">
-    <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Free</h4>
-            </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>10 users included</li>
-                    <li>2 farms only</li>
-                    <li>Email support</li>
-                    <li>Help center access</li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-            </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Pro</h4>
-            </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>20 users included</li>
-                    <li>10 farms</li>
-                    <li>Priority email support</li>
-                    <li>
-                        <strong>
-                            If your cow dies we won't eat it
-                        </strong>
-                    </li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-            </div>
-        </div>
-        <div class="card mb-4 box-shadow">
-            <div class="card-header">
-                <h4 class="my-0 font-weight-normal">Extra Pro</h4>
-            </div>
-            <div class="card-body">
-                <h1 class="card-title pricing-card-title">$65 <small class="text-muted">/ mo</small></h1>
-                <ul class="list-unstyled mt-3 mb-4">
-                    <li>30 users included</li>
-                    <li>15 farms</li>
-                    <li>Phone and email support</li>
-                    <li>Help center access</li>
-                </ul>
-                <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
-            </div>
-        </div>
+    <div class="centered">
+        <h1>Pricing</h1>
     </div>
+    <p>
+        See our incredible pricing options below. Whatever your needs, we'll
+        have something that works for you and your team.
+    </p>
+    <p>
+        Over the years we've served as essentially the exact
+        <a href="https://www.lifehacker.com.au/2013/01/turn-any-browser-window-into-a-quick-edit-notepad/" target="_blank">
+            same thing as notepad</a>
+        for hundreds of paying customers. So join up with us today to find out
+        why our drop shadows and icon buttons are such a huge improvement upon
+        the standard experience.
+    </p>
+</div>
+<div class="virtual flex-parent">
+    <div class="flex-thing centered card shadow">
+        <h1>Free</h1>
+        <h2>$0 / mo</h2>
+        <ul class="left-align">
+            <li>10 users included</li>
+            <li>2 farms only</li>
+            <li>Email support</li>
+            <li>Help center access</li>
+        </ul>
+    </div>
+    <div class="flex-thing centered card shadow">
+        <h1>Pro</h1>
+        <h2>$15 / mo</h2>
+        <ul class="left-align">
+            <li>20 users included</li>
+            <li>10 farms</li>
+            <li>Priority email support</li>
+            <li>
+                <strong>We won't eat your cow</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="flex-thing centered card shadow">
+        <h1>Extra Pro</h1>
+        <h2>$65 / mo</h2>
+        <ul class="left-align">
+            <li>30 users included</li>
+            <li>15 farms</li>
+            <li>Phone and email support</li>
+            <li>Help center access</li>
+        </ul>
+    </div>
+</div>
+<div class="container shadow">
+    <p>
+        Personally, I would recommend the Pro package, as it seems to me to
+        provide the best "bang for your buck". However if, like many of our
+        users, you accidentally start an 11th farm, you'll find yourself in a
+        tricky situation.
+    </p><p>
+        As our todo list is stored entirely in the backend as
+        plaintext in active memory we will be unable to transfer your list, so
+        if there's even the slightest possibility you'll be starting an 11th
+        farm, then you really should start straight away with our Extra Pro
+        package, which is really the only viable option for you unfortunately.
+    </p>
 </div>
 {% endblock %}
